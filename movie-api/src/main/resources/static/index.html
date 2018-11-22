@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>登陆</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/signin.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="form-signin">
+      <h2 class="form-signin-heading">登陆</h2>
+      <label for="inputUsername" class="sr-only">userName</label>
+      <input type="text" id="inputUsername" class="form-control" placeholder="userName" required autofocus><br />
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required><br />
+      <div class="captchaBlock">
+        <label for="inputCaptcha" class="sr-only">验证码</label>
+        <input type="text" id="inputCaptcha" class="form-control captcha" placeholder="Captcha" required>
+        <img id="img" onclick="getCaptcha()" title="换一张" src="img/captcha.png" />
+      </div>
+      <br />
+      <button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
+      <input type="hidden" id="data" value="" />
+    </div>
+
+  </div>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script>
+    var userName = $('#inputUsername');
+    var passWord = $("#inputPassword");
+    var captCha = $("#inputCaptcha");
+    //  var sec;
+    var api = "http://movie.yooyu.club";
+    getCaptcha();
+    function getCaptcha() {
+      $.ajax({
+        url: api + '/api/captcha/',
+        cache: false,
+        type: 'get',
+        success: function (data) {
+          //  console.log(data);
+          $("#img").attr("src", 'data:image/png;base64,' + data.data.base64Img);
+          sec = data.data.secret;
+          //  console.log(sec);
+          $("#data").val(sec);
+        },
+        error: function () {
+          // console.log(1);
+        },
+
+      })
+    }
+
+
+    //  console.log(sec)
+    $(".btn").on("click", function () {
+      var data = $("#data").val();
+      if (userName.val() == '') {
+        alert("请输入用户名");
+        return;
+      }
+      else if (passWord.val() == '') {
+        alert("请输入密码");
+        return;
+      }
+      else if (captCha.val() == '') {
+        alert("请输入验证码");
+        return;
+      }
+      else {
+        $.ajax({
+          url: api + "/api/auth/login",
+          type: "post",
+          dataType: "JSON",
+          contentType: "application/json;charset=UTF-8",
+          data: JSON.stringify({ "username": userName.val(), "password": passWord.val(), "captcha": captCha.val(), "secret": sec }),
+          success: function (data, status) {
+            window.location.href="data.html"
+          },
+          error: function (data) {     
+            alert(data.responseJSON.message)
+          }
+        })
+      }
+    })
+
+  </script>
+</body>
+
+</html>
