@@ -1,32 +1,35 @@
-package model;
+package yuweibin.movie.model.model;
 
-import constant.ImageType;
+import yuweibin.movie.model.constant.LinkType;
 import lombok.Builder;
 
 import javax.persistence.*;
 
 /**
- * 图片，包括封面和缩略图
+ * 下载链接实体
  */
-@Table(name = "t_image")
+@Table(name = "t_link")
 @Entity
 @Builder
-public class Image {
-
+public class Link {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     /**
-     * 图片链接
+     * 下载链接
      */
-    @Column(columnDefinition = "text")
     private String url;
 
     /**
-     * 图片类型
+     * 链接类型
      */
-    private ImageType type;
+    private LinkType type;
+
+    /**
+     * 如果是百度云，提取码
+     */
+    private String code;
 
     @ManyToOne()
     @JoinColumn(name = "movie_id", nullable = false)

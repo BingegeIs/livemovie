@@ -1,15 +1,17 @@
-package model;
+package yuweibin.movie.model.model;
 
-import constant.PersonType;
+import yuweibin.movie.model.constant.PersonType;
 import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * 参与人，包括：导演/编剧/主演
  */
 @Table(name = "t_person")
+@Entity
 @Data
 @Builder
 public class Person extends Base {
@@ -23,4 +25,7 @@ public class Person extends Base {
 
     @Enumerated(EnumType.ORDINAL)
     private PersonType type;
+
+    @ManyToMany
+    private Set<Movie> movies;
 }

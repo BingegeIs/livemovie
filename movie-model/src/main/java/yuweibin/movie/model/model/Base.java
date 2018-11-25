@@ -1,4 +1,4 @@
-package model;
+package yuweibin.movie.model.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;

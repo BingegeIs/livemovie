@@ -1,4 +1,4 @@
-package constant;
+package yuweibin.movie.model.constant;
 
 /**
  * 图片分类：缩略图/封面

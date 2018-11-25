@@ -1,4 +1,4 @@
-package constant;
+package yuweibin.movie.model.constant;
 
 /**
  * 评分类型：IMDB/豆瓣

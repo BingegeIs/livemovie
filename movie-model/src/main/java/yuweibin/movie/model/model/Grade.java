@@ -1,6 +1,6 @@
-package model;
+package yuweibin.movie.model.model;
 
-import constant.GradeType;
+import yuweibin.movie.model.constant.GradeType;
 import lombok.Builder;
 
 import javax.persistence.*;
@@ -28,4 +28,7 @@ public class Grade {
      */
     @Enumerated(EnumType.ORDINAL)
     private GradeType type;
+
+    @JoinColumn(name = "movie_id", nullable = false)
+    private Movie movie;
 }

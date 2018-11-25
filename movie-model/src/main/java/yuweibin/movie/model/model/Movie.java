@@ -1,6 +1,6 @@
-package model;
+package yuweibin.movie.model.model;
 
-import constant.Category;
+import yuweibin.movie.model.constant.Category;
 import lombok.Builder;
 
 import javax.persistence.*;
@@ -62,8 +62,7 @@ public class Movie extends Base {
     /**
      * 评分
      */
-    @ManyToMany
-    @JoinTable(name = "t_movie_grade")
+    @OneToMany(mappedBy = "movie")
     private Set<Grade> grades;
 
     /**
