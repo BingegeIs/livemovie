@@ -1,5 +1,5 @@
 <template>
-    <Carousel v-model="value1" :autoplay="setting.autoplay" :autoplay-speed="setting.autoplaySpeed" :dots="setting.dots"
+    <Carousel v-yuweibin.movie.model.model="value1" :autoplay="setting.autoplay" :autoplay-speed="setting.autoplaySpeed" :dots="setting.dots"
         :radius-dot="setting.radiusDot" :trigger="setting.trigger" :arrow="setting.arrow">
         <CarouselItem v-for="item in imgList" :key="item.id">
             <router-link class="demo-carousel"  target="_blank"  :to="'/detail/' + item.id" ><img :src=item.src /></router-link>
