@@ -6,9 +6,14 @@
 
     <groupId>yuweibin</groupId>
     <artifactId>livemovie</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <modules>
         <module>movie-api</module>
+        <module>movie-model</module>
+        <module>movie-spider</module>
+        <module>movie-dao</module>
+        <module>movie-service</module>
     </modules>
 </project>
