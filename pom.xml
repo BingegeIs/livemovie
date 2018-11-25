@@ -15,6 +15,8 @@
         <module>movie-spider</module>
         <module>movie-dao</module>
         <module>movie-service</module>
+        <module>movie-common</module>
+        <module>movie-config</module>
     </modules>
 
     <parent>
