@@ -3,3 +3,7 @@ spring:
     url: jdbc:postgresql://127.0.0.1:5432/movie
     username: postgres
     password: yuweibin
+
+app:
+  file:
+    path: D:\crawler
