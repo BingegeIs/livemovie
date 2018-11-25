@@ -11,5 +11,11 @@
 
     <artifactId>movie-dao</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>yuweibin</groupId>
+            <artifactId>movie-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

@@ -1,10 +1,10 @@
 package bingege.movie.api.manage.upload;
 
-import bingege.movie.api.common.api.ApiResponse;
-import bingege.movie.api.common.exception.AppException;
-import bingege.movie.api.common.exception.ResourceNotFoundException;
-import bingege.movie.api.common.exception.UnsupportedMediaTypeException;
-import bingege.movie.api.common.service.FileService;
+import bingege.movie.common.api.ApiResponse;
+import bingege.movie.common.exception.AppException;
+import bingege.movie.common.exception.ResourceNotFoundException;
+import bingege.movie.common.exception.UnsupportedMediaTypeException;
+import bingege.movie.service.FileService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

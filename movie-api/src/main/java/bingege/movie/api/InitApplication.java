@@ -1,8 +1,8 @@
 package bingege.movie.api;
 
-import bingege.movie.api.common.config.property.AppProperties;
-import bingege.movie.api.common.model.User;
-import bingege.movie.api.common.service.UserService;
+import bingege.movie.config.property.AppProperties;
+import bingege.movie.model.model.User;
+import bingege.movie.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

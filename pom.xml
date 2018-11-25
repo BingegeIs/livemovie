@@ -16,7 +16,6 @@
         <module>movie-dao</module>
         <module>movie-service</module>
         <module>movie-common</module>
-        <module>movie-config</module>
     </modules>
 
     <parent>
@@ -75,7 +74,10 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
     </dependencies>
 </project>

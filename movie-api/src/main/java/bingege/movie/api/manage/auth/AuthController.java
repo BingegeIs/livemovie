@@ -1,11 +1,11 @@
 package bingege.movie.api.manage.auth;
 
-import bingege.movie.api.common.api.ApiResponse;
 import bingege.movie.api.manage.auth.payload.JwtAuthenticationResponse;
 import bingege.movie.api.manage.auth.payload.LoginRequest;
-import bingege.movie.api.common.config.security.JwtTokenProvider;
-import bingege.movie.api.common.exception.BadCaptchaException;
-import bingege.movie.api.common.service.UserService;
+import bingege.movie.common.api.ApiResponse;
+import bingege.movie.common.exception.BadCaptchaException;
+import bingege.movie.config.security.JwtTokenProvider;
+import bingege.movie.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
