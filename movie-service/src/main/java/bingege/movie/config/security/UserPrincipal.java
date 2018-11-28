@@ -18,8 +18,12 @@ public class UserPrincipal implements UserDetails {
         this.user = user;
     }
 
-    static UserPrincipal create(User user) {
+    public static UserPrincipal create(User user) {
         return new UserPrincipal(user);
+    }
+
+    public User getUser() {
+        return user;
     }
 
     @Override

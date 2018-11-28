@@ -1,14 +1,15 @@
 package bingege.movie.config.security;
 
 
+import bingege.movie.model.model.User;
 import bingege.movie.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
+import javax.transaction.Transactional;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
@@ -20,6 +21,11 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username)
             throws UsernameNotFoundException {
-        return UserPrincipal.create(userService.getUserByUsername(username));
+        User user = userService.getUserByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
+        if (user.getHasDelete()) {
+            throw new UsernameNotFoundException("Username deleted");
+        }
+        return UserPrincipal.create(user);
     }
 }

@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, allowGetters = true)
-public class Base implements Serializable {
+public abstract class Base implements Serializable {
 
     @CreatedDate
     private LocalDateTime createAt;
@@ -27,6 +27,5 @@ public class Base implements Serializable {
 
     private LocalDateTime deleteAt;
 
-    @Column(columnDefinition = "bool default false", nullable = false)
-    private boolean hasDelete;
+    private Boolean hasDelete;
 }

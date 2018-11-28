@@ -22,6 +22,9 @@ public class User extends Base {
      */
     private String nickname;
 
+    /**
+     * 登录名
+     */
     @Column(unique = true)
     private String username;
 
@@ -42,7 +45,6 @@ public class User extends Base {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(id);
     }
 }
